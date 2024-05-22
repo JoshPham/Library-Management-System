@@ -1,15 +1,22 @@
 package LibraryManagementSystem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Borrower {
     private String name;
-    private int id;
+    private String id;
     private HashMap<String, Book> books = new HashMap<>();
+    private static ArrayList<String> borrowerIds = new ArrayList<>();
 
-    public Borrower(String name, int id) {
+    public Borrower(String name, String id) {
         this.name = name;
         this.id = id;
+        borrowerIds.add(id);
+    }
+
+    public static boolean containsId(String id) {
+        return borrowerIds.contains(id);
     }
 
     public void addBook(Book book) {
@@ -28,7 +35,7 @@ public class Borrower {
         return name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 }

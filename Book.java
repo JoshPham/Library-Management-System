@@ -14,9 +14,17 @@ public class Book {
         this.category = category;
     }
 
+    public void checkout(Borrower borrower) {
+        this.borrower = borrower;
+    }
+
+    public void returnBook() {
+        this.borrower = null;
+    }
+
     public void printStatus() {
-        String availabilityStatus = checkAvailability()? String.format("Checked out by %s, (ID: %s)", borrower.getName(), borrower.getId()) : "Available";
-        System.out.printf("Title: %s, Author: %s, Category: %s, ISBN: %s, Availability: %s", title, author, category, isbn, availabilityStatus);
+        String availabilityStatus = checkAvailability()? String.format("Checked out by %s (ID: %s)", borrower.getName(), borrower.getId()) : "Available";
+        System.out.printf("Title: %s, Author: %s, Category: %s, ISBN: %s, Availability: %s\n", title, author, category, isbn, availabilityStatus);
     }
 
     public boolean checkAvailability() {
