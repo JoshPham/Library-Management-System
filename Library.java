@@ -66,7 +66,6 @@ public class Library {
             System.out.println("Book is already checked out.");
         } else {
             books.get(isbn).checkout(borrowers.get(id));
-            System.out.println(books.get(isbn).checkAvailability());
             borrowers.get(id).addBook(books.get(isbn));
             System.out.println("Book checked out successfully.");
         }
